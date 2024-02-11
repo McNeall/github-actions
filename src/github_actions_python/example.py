@@ -3,6 +3,6 @@ def my_add_function(a: int, b: int) -> int:
 
 
 def my_throw_function(a: int) -> int:
-    if a >                10:
+    if a > 10:
         raise ValueError("a is greater than 10")
     return a * 2
