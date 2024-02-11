@@ -1,6 +1,6 @@
 name: Verify Pull Request
 run-name: ${{ github.actor }} is checking Pull Request
-on: [push]
+on: [pull_request]
 jobs: 
   Verify:
     runs-on: ubuntu-latest
