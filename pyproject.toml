@@ -1,5 +1,5 @@
 [project]
-name = "github-actions-python"
+name = "github_actions_python"
 version = "0.1.0"
 description = "Default template for PDM package"
 authors = [{ name = "Robert Schmidt", email = "allthingscoding21th@gmail.com" }]
@@ -42,4 +42,4 @@ max-line-length = 120
 
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/foo"]
+packages = ["src/github_actions_python"]
