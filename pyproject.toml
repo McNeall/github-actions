@@ -1,0 +1,41 @@
+[project]
+name = "github-actions-python"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [{ name = "Robert Schmidt", email = "allthingscoding21th@gmail.com" }]
+dependencies = []
+requires-python = ">=3.12"
+readme = "README.md"
+license = { text = "MIT" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=24.1.1",
+    "pylint>=3.0.3",
+    "isort>=5.13.2",
+    "coverage>=7.4.1",
+    "pytest>=8.0.0",
+]
+
+[tool.pdm.scripts]
+check-test-formatting = "black --check --verbose ./tests"
+check-source-formatting = "black --check --verbose ./src"
+tests = "coverage run -m pytest"
+
+[tool.black]
+line-length = 120
+preview = true
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint]
+max-line-length = 120
