@@ -1,0 +1,19 @@
+name: Verify Pull Request
+run-name: ${{ github.actor }} is checking Pull Request
+on: [push]
+jobs: 
+  Verify:
+    runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Setup PDM
+          uses: pdm-project/setup-pdm@v4
+        - name: Install dependencies
+          run: pdm install
+        - name: Check source formatting
+          run: pdm run check-test-formatting
+        - name: Check tests formatting
+          run: pdm runcheck-source-formatting
+        - name: Run tests
+          run: pdm run tests
+        
