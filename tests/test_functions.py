@@ -2,8 +2,6 @@ from github_actions_python import example
 import pytest
 
 
-
-
 def test_my_add_function():
     result = example.my_add_function(5, 10)
     assert result == 15
