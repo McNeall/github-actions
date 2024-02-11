@@ -11,9 +11,10 @@ jobs:
       - name: Install dependencies
         run: pdm install
       - name: Check source formatting
-        run: pdm run check-test-formatting
+        run: pdm run check-source-formatting
       - name: Check tests formatting
-        run: pdm runcheck-source-formatting
+        run: pdm run check-test-formatting
       - name: Run tests
         run: pdm run tests
+        
         
