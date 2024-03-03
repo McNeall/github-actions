@@ -8,9 +8,14 @@ requires-python = ">=3.12"
 readme = "README.md"
 license = { text = "MIT" }
 
+[project.urls]
+testpypi = "https://test.pypi.org/project/my-github-action-test-release"
+
 [build-system]
 requires = ["hatchling", "versioningit"]
 build-backend = "hatchling.build"
+
+
 
 
 [tool.pdm]
