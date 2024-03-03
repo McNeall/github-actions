@@ -1,5 +1,6 @@
-from github_actions_python import example
 import pytest
+
+from github_actions_python import example
 
 
 def test_my_add_function():

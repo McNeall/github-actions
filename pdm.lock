@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:36a6be3e174d350176e02bc72963415893da4f642bfec9bdde0e2f2df33e8b02"
+content_hash = "sha256:1406e49a317b50c360c1473431b19ad9e094ce47c2f99ca1e8278bff0c367d0b"
 
 [[package]]
 name = "astroid"
@@ -234,4 +234,18 @@ groups = ["dev"]
 files = [
     {file = "tomlkit-0.12.3-py3-none-any.whl", hash = "sha256:b0a645a9156dc7cb5d3a1f0d4bab66db287fcb8e0430bdd4664a095ea16414ba"},
     {file = "tomlkit-0.12.3.tar.gz", hash = "sha256:75baf5012d06501f07bee5bf8e801b9f343e7aac5a92581f20f80ce632e6b5a4"},
+]
+
+[[package]]
+name = "versioningit"
+version = "3.0.0"
+requires_python = ">=3.7"
+summary = "Versioning It with your Version In Git"
+groups = ["dev"]
+dependencies = [
+    "packaging>=17.1",
+]
+files = [
+    {file = "versioningit-3.0.0-py3-none-any.whl", hash = "sha256:7cf99a78bf16e67c21a29d520184937835045c191b8105a07897aeff5e9d0f52"},
+    {file = "versioningit-3.0.0.tar.gz", hash = "sha256:4e3ce47a6424d850ae9e55e1b134a020e9fcbcb895338f107f2b5c51d34c9c1b"},
 ]

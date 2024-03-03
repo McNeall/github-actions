@@ -9,7 +9,7 @@ readme = "README.md"
 license = { text = "MIT" }
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "versioningit"]
 build-backend = "hatchling.build"
 
 
@@ -23,12 +23,14 @@ dev = [
     "isort>=5.13.2",
     "coverage>=7.4.1",
     "pytest>=8.0.0",
+    "versioningit>=3.0.0",
 ]
 
 [tool.pdm.scripts]
 check-test-formatting = "black --check --verbose ./tests"
 check-source-formatting = "black --check --verbose ./src"
-tests = "coverage run -m pytest"
+tests = "coverage run -m pytest "
+report = "coverage report --skip-empty --skip-covered"
 
 [tool.black]
 line-length = 120
@@ -43,3 +45,26 @@ max-line-length = 120
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/github_actions_python"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/*.py"]
+
+
+[tool.hatch.version]
+source = "versioningit"
+default-version = "0.0.0"
+
+[tool.hatch.version.format]
+distance = "{next_version}+d{build_date:%Y%m%d%s}.{rev}"
+dirty = "{next_version}+d{build_date:%Y%m%d%S}.{rev}-dirty"
+distance-dirty = "{next_version}+{rev}.d{build_date:%Y%m%d%S}-dirty"
+
+
+[tool.hatch.version.vcs]
+method = "git"
+match = ["v*"]
+default-tag = "0.0.0-unknown"
+
+
+[tool.hatch.version.tag2version]
+method = "basic"

@@ -1,5 +1,5 @@
 name: Verify Pull Request
-run-name: ${{ github.actor }} is checking Pull Request
+run-name: Verify Pull Request (${{ github.actor }})
 on: [pull_request]
 jobs: 
   Verify:
