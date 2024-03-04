@@ -1,0 +1,61 @@
+site_name: Github Actions Python
+site_url: ""
+remote_branch: docs
+extra:
+  version:
+    provider: mike
+nav:
+  - Getting Started: README.md
+  - Examples: examples.md
+  - Changelog: CHANGELOG.md
+  - Licence: license.md
+
+theme:
+  name: material
+  palette:
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: orange
+    accent: orange
+    toggle:
+      icon: material/lightbulb-outline
+      name: "Switch to dark mode"
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: orange
+    accent: orange
+    toggle:
+      icon: material/lightbulb
+      name: 
+
+watch:
+  - src
+
+hooks:
+  - docs/hooks/hooks.py
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src]
+          import:
+            - https://docs.python.org/3/objects.inv
+          options:
+            members_order: source
+            separate_signature: true
+            filters: ["!^_"]
+            docstring_options:
+              ignore_init_summary: true
+            merge_init_into_class: true
+            show_signature_annotations: true
+            signature_crossrefs: true
+            docstring_style: google
+            show_source: false
+            show_symbol_type_toc: true
+            show_symbol_type_heading: true
+  - mike:
+      version_selector: true
+      canonical_version: latest
