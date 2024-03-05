@@ -5,7 +5,7 @@ on:
       - published
 jobs:
     publish-pypi:
-      name: Publish distribution for ${{ GITHUB_REF }}
+      name: Publish distribution ${{ github.ref }}
       runs-on: ubuntu-latest
       permissions:
         id-token: write
@@ -17,7 +17,7 @@ jobs:
         - name: upload to testpypi
           run: pdm publish --repository testpypi
     publish-docs:
-      name: Publish documentation for ${{ vars.GITHUB_REF }}
+      name: Create documentation for ${{ github.ref }}
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4
@@ -29,5 +29,5 @@ jobs:
           run: |
             git config user.name 'github-actions[bot]'
             git config user.email 'github-actions[bot]@users.noreply.github.com'
-        - name: Publish docs ${{ github.GITHUB_REF }}
+        - name: Publish docs ${{ github.ref }}
           run: mike deploy --push --update-aliases v$(versioningit) latest
