@@ -43,7 +43,6 @@ check-test-formatting = "black --check --verbose ./tests"
 check-source-formatting = "black --check --verbose ./src"
 tests = "coverage run -m pytest "
 report = "coverage report --skip-empty --skip-covered"
-version = "versioningit"
 
 [tool.black]
 line-length = 120

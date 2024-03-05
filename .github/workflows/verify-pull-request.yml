@@ -9,7 +9,7 @@ jobs:
       - name: Setup PDM
         uses: pdm-project/setup-pdm@v4
       - name: Install dependencies
-        run: pdm install
+        run: pdm sync
       - name: Check source formatting
         run: |
           pwd

@@ -24,7 +24,9 @@ jobs:
         - name: Setup PDM
           uses: pdm-project/setup-pdm@v4
         - name: Install docs dependencies
-          run: pdm sync -G docs
+          run: |
+            pdm sync -G docs
+            eval $(pdm venv activate)
         - name: Setup git
           run: |
             git config user.name 'github-actions[bot]'
