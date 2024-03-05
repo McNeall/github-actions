@@ -62,7 +62,6 @@ packages = ["src/github_actions_python"]
 [tool.hatch.build.targets.sdist]
 include = ["src/*.py"]
 
-
 [tool.hatch.version]
 source = "versioningit"
 

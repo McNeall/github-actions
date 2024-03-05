@@ -4,8 +4,8 @@ on:
     types:
       - published
 jobs:
-    build:
-      name: Build distribution
+    publish-pypi:
+      name: Publish distribution for ${ github.GITHUB_REF }}
       runs-on: ubuntu-latest
       permissions:
         id-token: write
@@ -16,3 +16,18 @@ jobs:
           uses: pdm-project/setup-pdm@v4
         - name: upload to testpypi
           run: pdm publish --repository testpypi
+    publish-docs:
+      name: Publish documentation for ${{ github.GITHUB_REF }}
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Setup PDM
+          uses: pdm-project/setup-pdm@v4
+        - name: Install docs dependencies
+          run: pdm sync -G docs
+        - name: Setup git
+          run: |
+            git config user.name 'github-actions[bot]
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+        - name: Publish docs ${{ github.GITHUB_REF }}
+          run: mike deploy --push --update-aliases v$(versioningit) latest
