@@ -12,6 +12,8 @@ jobs:
       environment: release
       steps:
         - uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
         - name: Setup PDM
           uses: pdm-project/setup-pdm@v4
         - name: upload to testpypi
@@ -29,7 +31,6 @@ jobs:
           run: |
             git config user.name 'github-actions[bot]'
             git config user.email 'github-actions[bot]@users.noreply.github.com'
-            git fetch origin docs --depth 1
         - name: Publish docs ${{ github.ref }}
           run: |
             eval $(pdm venv activate)
