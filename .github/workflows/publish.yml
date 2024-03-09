@@ -5,7 +5,7 @@ on:
       - published
 jobs:
     publish-pypi:
-      name: Publish distribution ${{ github.ref }}
+      name: Publish distribution ${{ github.ref_name }}
       runs-on: ubuntu-latest
       permissions:
         id-token: write
@@ -17,7 +17,7 @@ jobs:
         - name: upload to testpypi
           run: pdm publish --repository testpypi
     publish-docs:
-      name: Create documentation for ${{ github.ref }}
+      name: Create documentation for ${{ github.ref_name }}
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4
@@ -32,7 +32,7 @@ jobs:
           run: |
             git config user.name 'github-actions[bot]'
             git config user.email 'github-actions[bot]@users.noreply.github.com'
-        - name: Publish docs ${{ github.ref }}
+        - name: Publish docs ${{ github.ref_name }}
           run: |
             git branch --track docs origin/docs 
             eval $(pdm venv activate)
