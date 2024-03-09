@@ -1,6 +1,7 @@
 site_name: Github Actions Python
-site_url: ""
+site_url: "https://mcneall.github.io/github-actions"
 remote_branch: docs
+remote_name: origin
 extra:
   version:
     provider: mike
