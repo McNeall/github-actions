@@ -12,7 +12,8 @@ jobs:
         uses: pdm-project/setup-pdm@v4
       - name: Install dependencies
         run: pdm sync
-      - uses: jakebailey/pyright-action@v2
+      - name: Check types
+        run: pyright
       - name: Check formatting
         run: pdm run format-check
       - name: Run linter
