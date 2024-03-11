@@ -13,9 +13,7 @@ jobs:
       - name: Install dependencies
         run: pdm sync
       - name: Check types
-        run: |
-          eval $(pdm venv activate)
-          pyright
+        run: pdm run type-check
       - name: Check formatting
         run: pdm run format-check
       - name: Run linter
