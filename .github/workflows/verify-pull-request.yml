@@ -11,7 +11,9 @@ jobs:
       - name: Setup PDM
         uses: pdm-project/setup-pdm@v4
       - name: Install dependencies
-        run: pdm sync
+        run: |
+          pdm sync
+          eval $(pdm venv activate)
       - name: Check types
         run: pyright
       - name: Check formatting
