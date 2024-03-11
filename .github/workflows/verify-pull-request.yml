@@ -10,13 +10,11 @@ jobs:
         uses: pdm-project/setup-pdm@v4
       - name: Install dependencies
         run: pdm sync
-      - name: Check source formatting
-        run: |
-          pwd
-          ls -la
-          pdm run check-source-formatting
-      - name: Check tests formatting
-        run: pdm run check-test-formatting
+      - uses: jakebailey/pyright-action@v2
+      - name: Check formatting
+        run: pdm run format-check
+      - name: Run linter
+        run: pdm run lint-check
       - name: Run tests
         run: pdm run tests
         
