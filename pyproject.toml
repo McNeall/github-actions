@@ -40,6 +40,7 @@ dev = [
 [tool.pdm.scripts]
 format-check = "ruff format --check --quiet"
 lint-check = "ruff check --quiet"
+type-check = "pyright"
 tests = "coverage run -m pytest "
 report = "coverage report --skip-empty --skip-covered"
 
@@ -53,7 +54,7 @@ include = ["src/*.py"]
 source = "versioningit"
 
 [tool.hatch.version.format]
-distance = "{base_version}+d{build_date:%Y%m%d%s}.{rev}"
+distance = "{base_version}+d{build_date:%Y%m%d%S}.{rev}"
 dirty = "{base_version}+d{build_date:%Y%m%d%S}.{rev}.dirty"
 distance-dirty = "{base_version}+d{build_date:%Y%m%d%S}.{rev}.dirty"
 
@@ -61,7 +62,6 @@ distance-dirty = "{base_version}+d{build_date:%Y%m%d%S}.{rev}.dirty"
 [tool.hatch.version.vcs]
 method = "git"
 match = ["v*"]
-default-tag = "0.0.0-unknown"
 
 
 [tool.hatch.version.tag2version]

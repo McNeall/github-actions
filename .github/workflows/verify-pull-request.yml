@@ -6,11 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Setup PDM
         uses: pdm-project/setup-pdm@v4
       - name: Install dependencies
         run: pdm sync
-      - uses: jakebailey/pyright-action@v2
+      - name: Check types
+        run: pdm run type-check
       - name: Check formatting
         run: pdm run format-check
       - name: Run linter
